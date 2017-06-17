@@ -20,7 +20,7 @@ instead you need to use the href attr or 'v-bind:href' (or :href)  directive lik
 or
  <md-button:href="page.link">{{page.name}}</md-button>
 ```
-So if you trying to do someting like this:
+So if you trying to do something like that:
 ```html
 <template v-for="(page,i) in pages">
   <md-button v-if="!page.children" :href="page.link">{{page.name}}</md-button>
@@ -32,8 +32,8 @@ So if you trying to do someting like this:
   </md-menu>
 </template>
 ```
-the page will reload evry click:<br>
-<img src="" width="500">
+the page will reload every click:<br>
+<img src="https://github.com/DotanTalitman/vue-md-to/blob/master/md-href.gif" width="700">
 
 sure ,you can hack this with something like that:<br>
 ```html
@@ -41,7 +41,7 @@ sure ,you can hack this with something like that:<br>
 ```
 But it's starting to be complicated  if you want submenus and it wont work like the above example.<br>
 
-Instade use the vue-md-to directive like that :
+## Instead, just use the vue-md-to directive like that :
 ```html
 <md-button v-md-to="page.link">{{page.name}}</md-button>
 Or for submenu:
@@ -61,8 +61,8 @@ So for this code:
   </md-menu>
 </template
 ```
-your route will be flawless
-<img src="" width="500">
+Your routing will be flawless
+<img src="https://github.com/DotanTalitman/vue-md-to/blob/master/v-md-to.gif" width="700">
 
 
 ### dependencies :
