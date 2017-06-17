@@ -1,8 +1,26 @@
 # vue-md-to
-## router-link behavior on vue material element
+## router-link behavior on vue material elements
 
-### Simple, add 'v-md-to' instead of href/:href
-
+If you are using vue-router you probably knows that you you have the option to get rid of the hash in the url,you can use the router's history mode, which leverages the 'history.pushState' API to achieve URL navigation without a page reload.
+<br>
+you can read more about vue-router 
+<a href="https://router.vuejs.org/en/" target="_blank">here</a>.<br>
+But you also need to use router-link component and use 'to' or ':to" directive in order to prevent the page reloaded.<br>
+for example: 
+```html
+<router-link :to="page.link">{{page.name}}</router-link>
+or
+<router-link to="/Home">Home</router-link>
+```
+So far so good, But...<br>
+if you want to use vue-mateiral you don't have the 'to' directive ,<br>
+instead you need to use the href attr or 'v-bind:href' (or :href)  directive like that:
+```html
+ <md-button href="/Home">Home</md-button>
+or
+ <md-button:href="page.link">{{page.name}}</md-button>
+```
+So if you trying to do someting like this:
 ```html
 <template v-for="(page,i) in pages">
   <md-button v-if="!page.children" :href="page.link">{{page.name}}</md-button>
@@ -14,7 +32,24 @@
   </md-menu>
 </template>
 ```
+the page will reload evry click:<br>
+<img src="" width="500">
 
+sure ,you can hack this with something like that:<br>
+```html
+<router-link v-if="!page.children" class="md-button" :to="page.link">{{page.name}}</router-link>
+```
+But it's starting to be complicated  if you want submenus and it wont work like the above example.<br>
+
+Instade use the vue-md-to directive like that :
+```html
+<md-button v-md-to="page.link">{{page.name}}</md-button>
+Or for submenu:
+<md-menu-item v-for="child in page.children" v-md-to="child.link">{{child.name}}</md-menu-item>
+Or if it just a string :
+<md-button v-md-to="'/home'">Home</md-button>
+```
+So for this code:
 ```html
 <template v-for="(page,i) in pages">
   <md-button v-if="!page.children" v-md-to="page.link">{{page.name}}</md-button>
@@ -25,14 +60,13 @@
     </md-menu-content>
   </md-menu>
 </template
-
-<router-link v-if="!page.children" class="md-button" :to="page.link">{{page.name}}</router-link>
-<md-button v-md-to="'/home'">Home</md-button>
 ```
+your route will be flawless
+<img src="" width="500">
 
 
 ### dependencies :
- vue-router<br>
- vue-material
+vue-router<br>
+vue-material
 
 
