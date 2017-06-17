@@ -42,7 +42,12 @@ sure ,you can hack this with something like that:<br>
 ```
 But it's starting to be complicated  if you want submenus and it wont work like the above example.<br>
 
-## Instead, just use the vue-md-to directive like that :
+## Instead, use the vue-md-to directive like that :
+```html
+import mdTo from "vue-md-to"
+Vue.use(mdTo);
+```
+## And in your html/template  :
 ```html
 <md-button v-md-to="page.link">{{page.name}}</md-button>
 Or for submenu:
@@ -50,7 +55,7 @@ Or for submenu:
 Or if it just a string :
 <md-button v-md-to="'/home'">Home</md-button>
 ```
-So for this code:
+So for example, in this code:
 ```html
 <template v-for="(page,i) in pages">
   <md-button v-if="!page.children" v-md-to="page.link">{{page.name}}</md-button>
