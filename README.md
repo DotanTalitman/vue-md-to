@@ -33,8 +33,9 @@ So if you trying to do something like that:
 </template>
 ```
 the page will reload every click:<br>
-<!--<img src="https://github.com/DotanTalitman/vue-md-to/blob/master/md-href.gif" width="700">-->
-![md-href]("https://github.com/DotanTalitman/vue-md-to/blob/master/md-href.gif")
+
+![md-href](https://github.com/DotanTalitman/vue-md-to/blob/master/md-href.gif)
+
 sure ,you can hack this with something like that:<br>
 ```html
 <router-link v-if="!page.children" class="md-button" :to="page.link">{{page.name}}</router-link>
@@ -62,8 +63,8 @@ So for this code:
 </template
 ```
 Your routing will be flawless
-<!--<img src="https://github.com/DotanTalitman/vue-md-to/blob/master/v-md-to.gif" width="700">
-![v-md-to]("https://github.com/DotanTalitman/vue-md-to/blob/master/v-md-to.gif")-->
+
+![v-md-to](https://github.com/DotanTalitman/vue-md-to/blob/master/v-md-to.gif)
 
 ### dependencies :
 vue-router<br>
